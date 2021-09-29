@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49c523a8-c4d6-4860-a131-2975fd3de2d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/models/reply_commet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/models/reply_commet.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/models/root_comment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/models/root_comment.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/views/comment_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/views/comment_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/views/post_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/views/post_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/views/root_template_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/flutter_comment_package/lib/views/root_template_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_page/controllers/homepage_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_page/controllers/homepage_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_page/views/home_page_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_page/views/home_page_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/page_1/views/page_1_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/page_1/views/page_1_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/profile/controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/profile/controllers/profile_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/profile/views/profile_screen_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/home/profile/views/profile_screen_widgets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/screens/login/controllers/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/screens/login/controllers/login_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/lib/services/firebase_services.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/lib/services/firebase_services.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_login_ui/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_login_ui/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
