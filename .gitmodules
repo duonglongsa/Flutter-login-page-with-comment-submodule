@@ -1,4 +1,4 @@
 [submodule "flutter_login_ui/flutter_comment_package"]
 	path = flutter_login_ui/flutter_comment_package
 	url = https://github.com/ldlongsa/flutter_comment_package.git
-	ignore = dirty
+	
