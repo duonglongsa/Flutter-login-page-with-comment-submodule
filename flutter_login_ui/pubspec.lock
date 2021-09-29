@@ -71,13 +71,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0"
-  comments:
-    dependency: "direct main"
-    description:
-      path: "packages/comments"
-      relative: true
-    source: path
-    version: "0.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -139,6 +132,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_comment_package:
+    dependency: "direct main"
+    description:
+      path: flutter_comment_package
+      relative: true
+    source: path
+    version: "0.0.1"
   flutter_keyboard_visibility:
     dependency: transitive
     description:

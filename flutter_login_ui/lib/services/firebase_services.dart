@@ -4,6 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_comment_package/models/post.dart';
+import 'package:flutter_comment_package/models/reply_commet.dart';
+import 'package:flutter_comment_package/models/root_comment.dart';
 import 'package:flutter_login_ui/models/vote_model.dart';
 import 'package:flutter_login_ui/screens/home/home_page/controllers/homepage_controller.dart';
 import 'package:flutter_login_ui/screens/home/profile/controllers/profile_controller.dart';
@@ -14,20 +17,50 @@ import 'package:flutter_login_ui/models/user_model.dart';
 
 import 'package:http/http.dart' as http;
 
+Future<String> photoUrl(String uID) async{
+  final doc = await FirebaseFirestore.instance.collection('users')
+      .doc(uID)
+      .get();
+  return doc['avatarUrl'];
+}
 
-/*Stream <List<CommentModel>> testStream(String uid){
-  //return FirebaseFirestore.instance.collection('users').doc(uid).collection('comments').orderBy("dateCreated", descending: true).snapshots();
-   final snapshot = FirebaseFirestore.instance.collection('users')
-       .doc(uid)
-       .collection('comments')
-       .orderBy("dateCreated", descending: true)
-       .snapshots();
+Stream <List<Post>> postStream(){
+  final snapshot = FirebaseFirestore.instance.collection('posts')
+      .orderBy('timeCreated', descending: true)
+      .snapshots();
+  return snapshot.map((qShot) => qShot.docs.map(
+          (doc) => Post.fromDocumentSnapshot(doc)).toList()
+  );
+}
 
-   return snapshot.map((qShot) => qShot.docs.map(
-           (doc) => CommentModel.fromDocumentSnapshot(doc)).toList()
-   );
 
-}*/
+Stream <List<RootComment>> commentStream(String postID){
+  final snapshot = FirebaseFirestore.instance.collection('posts')
+      .doc(postID)
+      .collection('root_comments')
+      .orderBy('timeCreated', descending: true)
+      .snapshots();
+  return snapshot.map((qShot) => qShot.docs.map(
+          (doc) => RootComment.fromDocumentSnapshot(doc, postID)).toList()
+  );
+}
+
+Stream <List<ReplyComment>> replyStream(String postID, String rootID){
+  final snapshot = FirebaseFirestore.instance.collection('posts')
+      .doc(postID)
+      .collection('root_comments')
+      .doc(rootID)
+      .collection('reply_comments')
+      .orderBy('timeCreated', descending: true)
+      .snapshots();
+  return snapshot.map((qShot) => qShot.docs.map(
+          (doc) => ReplyComment.fromDocumentSnapshot(doc)).toList()
+  );
+}
+
+
+
+
 
 Stream <List<VoteModel>> voteStream(){
   final snapshot = FirebaseFirestore.instance.collection('vote_event')
@@ -114,6 +147,14 @@ Future<bool> firebaseEditUser(ProfileController profileController) async {
   await FirebaseAuth.instance.currentUser.updatePhotoURL(profileController.user.photoUrl);
   await FirebaseAuth.instance.currentUser.updateEmail(profileController.user.email);
   await FirebaseAuth.instance.currentUser.updatePassword(profileController.user.password);
+  FirebaseFirestore.instance
+      .collection("users")
+      .doc(profileController.user.id)
+      .set({
+    'userName': profileController.user.name,
+    'avatarUrl': profileController.user.photoUrl,
+  });
+
   //await FirebaseAuth.instance.currentUser.updatePhoneNumber(phoneCredential)
 }
 
@@ -123,6 +164,15 @@ Future<bool> firebaseRegister(SignupController signupController) async {
         email: signupController.user.email,
         password: signupController.user.password
     );
+
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(userCredential.user.uid)
+        .set({
+      'userName': '',
+      'avatarUrl': 'https://image.flaticon.com/icons/png/128/668/668709.png',
+    });
+
     return true;
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
@@ -143,9 +193,9 @@ Future<bool> firebaseLogin(LoginController loginController) async {
         email: loginController.user.email,
         password: loginController.user.password
     );
-    loginController.initUser(userCredential);
+    print(userCredential.user.uid);
+    await loginController.initUser(userCredential);
     print(userCredential);
-    print(loginController.user.id);
     return true;
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_login_ui/models/user_model.dart';
+import 'package:flutter_login_ui/services/firebase_services.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController{
@@ -14,11 +15,11 @@ class LoginController extends GetxController{
 
   bool obscureText = true;
 
-  void initUser(UserCredential userCredential){
+  Future initUser(UserCredential userCredential) async {
     user.id = userCredential.user.uid;
     user.name = userCredential.user.displayName;
     user.phoneNumber = userCredential.user.phoneNumber;
-    user.photoUrl = userCredential.user.photoURL;
+    user.photoUrl = await photoUrl(user.id);
   }
 
   void rememberPassword(bool value){

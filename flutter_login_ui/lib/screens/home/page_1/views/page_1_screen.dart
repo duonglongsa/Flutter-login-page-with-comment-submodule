@@ -28,7 +28,7 @@ Widget buildPage1Screen(BuildContext context){
 
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                      /*children: [
                         Obx(() => ListView.builder(
                             physics: NeverScrollableScrollPhysics(),
                             //scrollDirection: Axis.vertical,
@@ -67,7 +67,7 @@ Widget buildPage1Screen(BuildContext context){
                             }
                         ),
                         ),
-                      ],
+                      ],*/
                     ),
                   ),
                 ),

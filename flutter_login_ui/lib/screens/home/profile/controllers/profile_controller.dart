@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_login_ui/models/user_model.dart';
+import 'package:flutter_login_ui/services/firebase_services.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController{
@@ -23,13 +24,19 @@ class ProfileController extends GetxController{
   final passwordFormKey = GlobalKey<FormState>();
   final phoneFormKey = GlobalKey<FormState>();
 
+  @override
+  void onInit() {
+    super.onInit();
+  }
 
-  void init(UserModel user){
+
+  void init(UserModel user) async {
     this.user = user;
     emailController.text = user.email;
     passwordController.text = user.password;
     nameController.text = user.name;
     phoneController.text = user.phoneNumber;
+    user.photoUrl = await photoUrl(user.id);
 
   }
 

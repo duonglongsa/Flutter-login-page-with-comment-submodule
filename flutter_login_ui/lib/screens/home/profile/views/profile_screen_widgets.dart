@@ -33,7 +33,7 @@ Widget buildAvatar(ProfileController profileController){
         CircleAvatar(
           radius: 50.0,
           backgroundColor: Colors.blue,
-          backgroundImage: NetworkImage('https://image.flaticon.com/icons/png/128/668/668709.png'),
+          backgroundImage: NetworkImage(profileController.user.photoUrl),
         ),
         if(profileController.isEditing) Align(
           alignment: Alignment.bottomRight,

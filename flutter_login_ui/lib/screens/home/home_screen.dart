@@ -5,6 +5,7 @@ import 'package:flutter_login_ui/screens/home/home_controller.dart';
 import 'package:flutter_login_ui/screens/home/page_1/views/page_1_screen.dart';
 import 'package:flutter_login_ui/screens/home/profile/views/profile_screen.dart';
 import 'package:flutter_login_ui/models/user_model.dart';
+import 'package:flutter_login_ui/services/firebase_services.dart';
 import 'package:get/get.dart';
 
 import 'home_page/views/home_page_screen.dart';
@@ -21,12 +22,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final HomeController homeController = Get.put(HomeController());
 
-  _HomeScreenState(UserModel user){
+  _HomeScreenState(UserModel user) {
     homeController.user = user;
   }
 
+
   @override
   Widget build(BuildContext context) {
+
     List<Widget> screenOption = <Widget>[
       buildHomeScreen(context),
       buildPage1Screen(context),
