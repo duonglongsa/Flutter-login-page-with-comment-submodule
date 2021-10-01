@@ -142,7 +142,7 @@ Future<void> addComment(String comment, String uid) async {
 
 
 
-Future<bool> firebaseEditUser(ProfileController profileController) async {
+Future firebaseEditUser(ProfileController profileController) async {
   await FirebaseAuth.instance.currentUser.updateDisplayName(profileController.user.name);
   await FirebaseAuth.instance.currentUser.updatePhotoURL(profileController.user.photoUrl);
   await FirebaseAuth.instance.currentUser.updateEmail(profileController.user.email);

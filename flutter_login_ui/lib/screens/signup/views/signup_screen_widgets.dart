@@ -102,30 +102,29 @@ Widget buildRegisterBtn(SignupController signupController) {
       elevation: 5.0,
       onPressed: () async {
         if (signupController.validateSignup()) {
-          await firebaseRegister(signupController);
-          /*var statusCode = await register(signupController);
-          if(statusCode == 200) {
+          bool isRegisted = await firebaseRegister(signupController);
+          if(isRegisted) {
             Get.defaultDialog(
-                title: 'Successful register',
-                middleText: 'Back to login page?',
-                textConfirm: 'OK',
-                onConfirm: (){
-                  Get.back();
-                },
-                textCancel: 'Cancel',
-                onCancel: (){
-                }
+              title: 'Successful register',
+              middleText: 'Back to login page?',
+              textConfirm: 'OK',
+              onConfirm: (){
+              Get.back();
+              },
+              textCancel: 'Cancel',
+              onCancel: (){
+              }
             );
           } else {
             Get.defaultDialog(
-                title: 'Fail to register',
-                middleText: 'Email was used!',
-                textConfirm: 'OK',
-                onConfirm: (){
-                  Get.back();
-                },
+              title: 'Fail to register',
+              middleText: 'Email was used!',
+              textConfirm: 'OK',
+              onConfirm: () {
+                Get.back();
+              },
             );
-          }*/
+          }
         }
       },
       padding: EdgeInsets.all(15.0),
